@@ -1,3 +1,4 @@
+import 'dart:io';
 const version = '3.0';
 
 void main(List<String> arguments) {
@@ -18,5 +19,13 @@ void printUsage() {
 }
 
 void searchWiki(List<String>? arguments) {
-  print("search this article: $arguments");
+  final String articleTitle;
+
+  if (arguments == null || arguments.isEmpty) {
+    print("Please provide an article name to search for.");
+    articleTitle = stdin.readLineSync() ?? '';
+  } else {
+    articleTitle = arguments.join(' ');
+  }
+  print("Searching for article: $articleTitle");
 }
