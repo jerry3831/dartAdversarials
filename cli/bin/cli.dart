@@ -6,7 +6,7 @@ void main(List<String> arguments) {
   } else if (arguments.first == 'version') {
     print('dart version: $version');
   } else if (arguments.first == 'search') {
-    searchWiki(arguments);
+    searchWiki(arguments.sublist(1));
   } else {
     printUsage();
   }
