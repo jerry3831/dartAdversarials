@@ -27,5 +27,7 @@ void searchWiki(List<String>? arguments) {
   } else {
     articleTitle = arguments.join(' ');
   }
-  print("Searching for article: $articleTitle");
+  print("looking up articles with title: $articleTitle");
+  print("here you go");
+  print('(pretend this is an article about "$articleTitle")');
 }
