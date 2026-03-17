@@ -35,9 +35,10 @@ void searchWiki(List<String>? arguments) async {
   } else {
     articleTitle = arguments.join(' ');
   }
-  print("looking up articles with title: $articleTitle");
-  print("here you go");
-  print('(pretend this is an article about "$articleTitle")');
+ 
+//  actual article search and display
+  var articleContent = await getWikiArticlae(articleTitle);
+  print(articleContent);
 }
 
 Future<String> getWikiArticlae(String title) async {
