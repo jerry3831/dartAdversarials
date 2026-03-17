@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:http/http.dart' as http;
 const version = '3.0';
 
 void main(List<String> arguments) {
@@ -30,4 +31,19 @@ void searchWiki(List<String>? arguments) {
   print("looking up articles with title: $articleTitle");
   print("here you go");
   print('(pretend this is an article about "$articleTitle")');
+}
+
+Future<String> getWikiArticlae(String title) async {
+  final url = Uri.https(
+    'en.wikipedia.org',
+    '/api/rest_v1/page/summary/$title'
+  );
+
+  // make http request.
+  final response = await http.get(url);
+  if (response.statusCode == 200) {
+    return response.body;
+  }
+  // in the event that the request fails
+  return 'Error: article with title "$title" not found.';
 }
