@@ -5,12 +5,15 @@ const version = '3.0';
 void main(List<String> arguments) {
   if (arguments.isEmpty || arguments.first == 'help') {
     printUsage();
-  } else if (arguments.first == 'version') {
+  } 
+  else if (arguments.first == 'version') {
     print('dart version: $version');
-  } else if (arguments.first == 'search') {
-    final searchargs = arguments.length > 1 ? arguments.sublist(1) : null;
-    searchWiki(searchargs);
-  } else {
+  } 
+  else if (arguments.first == 'wikipedia') {
+    final inputArgs = arguments.length > 1 ? arguments.sublist(1) : null;
+    searchWiki(inputArgs);
+  } 
+  else {
     printUsage();
   }
 }
@@ -37,6 +40,7 @@ void searchWiki(List<String>? arguments) async {
   }
  
 //  actual article search and display
+  print('Looking up article "$articleTitle" on wikipedia...');
   var articleContent = await getWikiArticlae(articleTitle);
   print(articleContent);
 }
