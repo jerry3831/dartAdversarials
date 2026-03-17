@@ -20,11 +20,18 @@ void printUsage() {
 }
 
 void searchWiki(List<String>? arguments) async {
-  final String? articleTitle;
+  final String articleTitle;
 
   if (arguments == null || arguments.isEmpty) {
     print("Please provide an article name to search for.");
-    articleTitle = stdin.readLineSync() ?? '';
+    final inputFromCli = stdin.readLineSync();
+    
+    // if user presses CTRL+D or CTRL+Z, inputFromCli will be empty. Handle that case.
+    if (inputFromCli == null || inputFromCli.isEmpty) {
+      print("No article retrieved.");
+      return;
+    }
+    articleTitle = inputFromCli;
   } else {
     articleTitle = arguments.join(' ');
   }
