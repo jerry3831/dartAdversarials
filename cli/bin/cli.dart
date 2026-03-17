@@ -19,8 +19,8 @@ void printUsage() {
   print("The following commands are available: 'help', 'search <ARTICLE_NAME>', 'version'");
 }
 
-void searchWiki(List<String>? arguments) {
-  final String articleTitle;
+void searchWiki(List<String>? arguments) async {
+  final String? articleTitle;
 
   if (arguments == null || arguments.isEmpty) {
     print("Please provide an article name to search for.");
