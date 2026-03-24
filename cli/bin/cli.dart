@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:command_runner/command_runner.dart';
 const version = '3.0';
 
 void main(List<String> arguments) {
