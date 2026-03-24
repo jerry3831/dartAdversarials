@@ -1,5 +1,5 @@
 class CommandRunner {
   Future<void> run(List<String> input) async {
-    print('Running command with arguments: $input');
+    print('CommandRunner run with arguments: $input');
   }
 }
